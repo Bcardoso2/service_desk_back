@@ -18,6 +18,20 @@ const userSchema = mongoose.Schema({
     type: Boolean,
     required:true,
     default: false
+  },
+  // NOVO CAMPO: SETOR DO UTILIZADOR
+  sector: {
+    type: String,
+    required: [true, 'Por favor, atribua um setor ao utilizador'],
+    // Esta lista DEVE SER A MESMA do seu ticketModel.js
+    enum: [
+        'Geral',
+        'Suporte Técnico App',
+        'Questões de Membrosia',
+        'Agendamento de Aulas',
+        'Manutenção de Equipamentos',
+        'Financeiro'
+    ]
   }
 }, {
   timestamps : true
